@@ -9,6 +9,12 @@ app.get('/github', (req, res) => {
   );
 });
 
+app.get('/signin/callback', (req, res) => {
+  const { code } = req.query;
+
+  res.json(code);
+});
+
 app.listen(4000, () => {
   console.log('🚀 Server is running at http://localhost:4000');
 });
