@@ -5,21 +5,34 @@ import { UserPhoto } from '../UserPhoto';
 
 import { styles } from './styles';
 
-export function Message() {
+export type Message = {
+  id: string;
+  text: string;
+  user: {
+    name: string;
+    avatar_url: string;
+  }
+}
+
+type Props = {
+  data: Message
+}
+
+export function Message({ data }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.message}>
-        Texto da mensagem
+        {data.text}
       </Text>
 
       <View style={styles.footer}>
         <UserPhoto
           size="SMALL"
-          imageUri="https://github.com/andyalmeida.png"
+          imageUri={data.user.avatar_url}
         />
 
         <Text style={styles.userName}>
-          Nome do usuário
+          {data.user.name}
         </Text>
       </View>
     </View>
