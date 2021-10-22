@@ -22,12 +22,11 @@ const AVATAR_DEFAULT = Image.resolveAssetSource(avatarImg).uri;
 
 type Props = {
   imageUri: string | undefined;
-  sizes?: 'SMALL' | 'NORMAL';
-
+  size?: 'SMALL' | 'NORMAL';
 }
 
-export function UserPhoto({ imageUri, sizes = 'NORMAL' }: Props) {
-  const { containerSize, avatarSize } = SIZES[sizes];
+export function UserPhoto({ imageUri, size = 'NORMAL' }: Props) {
+  const { containerSize, avatarSize } = SIZES[size];
   return (
     <LinearGradient
       colors={[COLORS.PINK, COLORS.YELLOW]}
